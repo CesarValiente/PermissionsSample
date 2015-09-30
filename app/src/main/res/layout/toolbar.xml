@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        style="@style/ToolBarBase"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:layout_gravity="right"
+            android:layout_marginRight="10dp"
+            android:indeterminate="true"
+            android:visibility="gone"
+            style="@android:style/Widget.Holo.ProgressBar.Small"/>
+</android.support.v7.widget.Toolbar>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:tools="http://schemas.android.com/tools"
+             android:layout_height="match_parent"
+             android:layout_width="match_parent"
+             android:background="@color/translucent_grey"
+             android:clickable="true"
+             android:elevation="10dp"
+             android:onClick="onDismissRationaleClick">
+
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_gravity="bottom"
+            android:elevation="1dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp">
+
+        <ImageView
+                android:id="@+id/rationale_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:gravity="left"/>
+
+        <TextView
+                android:id="@+id/rationale_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/rationale_icon"
+                android:textSize="@dimen/text_medium"
+                android:textColor="@color/light_blue"
+                tools:text="This is the title rationale"/>
+
+        <TextView
+                android:id="@+id/rationale_subtitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_toRightOf="@id/rationale_icon"
+                android:layout_below="@id/rationale_title"
+                android:textSize="@dimen/text_small"
+                android:textColor="@android:color/black"
+                tools:text="... and this is the subtitle"/>
+
+        <Button
+                android:id="@+id/rationale_accept"
+                style="@style/RationaleButton.Blue"
+                android:onClick="onAcceptRationaleClick"
+                android:text="@string/rationale_try"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/rationale_subtitle"/>
+
+        <Button
+                android:id="@+id/rationale_not_accept"
+                style="@style/RationaleButton.White"
+                android:text="@string/rationale_no_thanks"
+                android:onClick="onDismissRationaleClick"
+                android:layout_below="@id/rationale_subtitle"
+                android:layout_toLeftOf="@id/rationale_accept"/>
+    </RelativeLayout>
+
+</FrameLayout>

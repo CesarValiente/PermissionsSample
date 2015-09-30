@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">PermissionsSample</string>
+    <string name="send_sms">Send</string>
+
+    <!-- Image -->
+    <string name="image_saved">Image saved successfully</string>
+    <string name="image_not_saved">Image was not saved. ERROR</string>
+
+    <!-- Rationale -->
+    <string name="rationale_try">Try It</string>
+    <string name="rationale_no_thanks">No Thanks</string>
+    <string name="rationale_read_contacts_title">Accessing to your contacts phone book</string>
+    <string name="rationale_read_contacts_subtitle">you will fully enjoy the app :-)</string>
+    <string name="rationale_save_image_title">Allowing access to your external storage</string>
+    <string name="rationale_save_image_subtitle">you will be able to save your friend\'s photo</string>
+    <string name="rationale_send_sms_title">Allowing send sms permission</string>
+    <string name="rationale_send_sms_subtitle">you will be able to send a SMS to your friend</string>
+    
+    <!-- Sanckbar -->
+    <string name="snackbar_btn">Settings</string>
+    <string name="snackbar_read_contacts">You can always change the read contacts permission</string>
+    <string name="snackbar_save_image">You can always change the external storage permission</string>
+    <string name="snackbar_sms">You can always change the SMS permission</string>
+
+    <!-- SMS -->
+    <string name="sms_delivered">SMS delivered</string>
+    <string name="sms_not_delivered">SMS not delivered</string>
+    <string name="sms_radio_turned_off">Radio was explicitly turned off</string>
+    <string name="sms_no_pdu">No pdu provided</string>
+    <string name="sms_no_service">Service is currently unavailable</string>
+    <string name="sms_generic_failure">Generic failure cause</string>
+    <string name="sms_sent">SMS sent successfully</string>
+    <string name="snackbar_settings">Settings</string>
+
+
+</resources>

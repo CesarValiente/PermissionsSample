@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+    <ImageView
+            android:id="@+id/photo"
+            android:layout_width="@dimen/contact_photo_width"
+            android:layout_height="@dimen/contact_photo_height"
+            android:layout_alignParentTop="true"
+            android:src="@mipmap/ic_launcher"/>
+
+    <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textSize="20sp"
+            android:ellipsize="marquee"
+            android:textColor="@color/accent"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/photo"
+            tools:text="yo@tu.com"/>
+
+    <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:textSize="20sp"
+            android:textColor="@color/primary"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@id/photo"
+            android:layout_below="@id/email"
+            tools:text="+49151555555"/>
+
+    <android.support.design.widget.TextInputLayout
+            android:id="@+id/sms_inputlayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/photo"
+            android:layout_margin="10dp">
+
+        <EditText
+                android:id="@+id/sms_edittext"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/primary"
+                android:padding="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/accent"
+                android:hint="Write a SMS"
+                android:maxLength="160"
+                tools:text="Hey XXX this is Cesar, call me when you can. Cheers ;-)"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+            android:id="@+id/sms_button"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/sms_inputlayout"
+            android:layout_centerInParent="true"
+            android:background="@drawable/send_sms_selector"
+            android:textSize="16sp"
+            android:text="@string/send_sms"
+            android:textColor="@color/primary"/>
+</RelativeLayout>

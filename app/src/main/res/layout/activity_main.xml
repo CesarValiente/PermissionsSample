@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Ideally using the CoordinatorLayout as FrameLayout would be the correct way to use it here, but if I replace
+the FrameLayout for the CoordinatorLayout, it behaves wrong. Is an open issue in the Android repo:
+https://code.google.com/p/android/issues/detail?id=179600 -->
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+    <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+    <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/toolbar"/>
+
+
+    <android.support.design.widget.CoordinatorLayout
+            android:id="@+id/main_coordinator_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    <ViewStub
+            android:id="@+id/permission_rationale_stub"
+            android:inflatedId="@+id/permission_rationale"
+            style="@style/PermissionRationale"/>
+
+</RelativeLayout>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="contacts_photo_width">56dp</dimen>
+    <dimen name="contacts_photo_height">56dp</dimen>
+    <dimen name="contact_photo_width">100dp</dimen>
+    <dimen name="contact_photo_height">100dp</dimen>
+
+    <!-- Text -->
+    <dimen name="text_small">12sp</dimen>
+    <dimen name="text_medium">16sp</dimen>
+</resources>
