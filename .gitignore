@@ -33,3 +33,18 @@ proguard/
 
 # Log Files
 *.log
+.idea/.name
+.idea/codeStyleSettings.xml
+.idea/compiler.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+.idea/copyright/profiles_settings.xml
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/inspectionProfiles/Project_Default.xml
+action/action.iml
+app/app.iml
+domain/domain.iml
+*.iml
