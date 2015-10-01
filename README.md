@@ -1,5 +1,5 @@
 # PermissionsSample
-Sample app to show how the new permissions model introduced in Android 6.0 works and how we can implement it and educate our users on a nice way.
+Sample app that shows how the new permissions model introduced in Android 6.0 works, and how we can implement it and educate our users on a nice way (following clean architecture, using architectural patterns, etc.)
 
 # Architecture of the sample app
 This app has been implemented based in the teachings of [Clean Architecture](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html) by [Uncle Bob](https://twitter.com/unclebobmartin). I would like to remark that is based, so is not strictly following it since at the end, we are software developers that have to take this teachings and adjust them to our requirements, preferences, tastes, etc.
