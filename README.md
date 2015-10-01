@@ -44,12 +44,12 @@ New permissions model on Android:
 - [New permissions model](https://developer.android.com/preview/features/runtime-permissions.html).
 - [Android Patterns Permissions](https://www.google.com/design/spec/patterns/permissions.html#permissions-usage).
 - [Exploring the new android permissions model (Joe Birch)](https://medium.com/ribot-labs/exploring-the-new-android-permissions-model-ba1d5d6c0610).
-- [Everything every Android de must know about new Android’s runtime permission (nuuneoi)](inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en).
+- [Everything every Android de must know about new Android’s runtime permission (nuuneoi)](http://inthecheesefactory.com/blog/things-you-need-to-know-about-android-m-permission-developer-edition/en).
 
 Architecture:
-- [The Clean Architecture (Uncle Bob)](blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html).
-- [Architecting Android… The clean way? (Fernando Cejas)](fernandocejas.com/2014/09/03/architecting-android-the-clean-way/).
-- [MVP for Android: how to organise the presentation layer (Antonio Leiva)](antonioleiva.com/mvp-android/).
+- [The Clean Architecture (Uncle Bob)](http://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html).
+- [Architecting Android… The clean way? (Fernando Cejas)](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/).
+- [MVP for Android: how to organise the presentation layer (Antonio Leiva)](http://antonioleiva.com/mvp-android/).
 - [Effective Android UI (Pedro V. Gómez Sánchez)](https://github.com/pedrovgs/EffectiveAndroidUI).
 - [Engineering Wunderlist for Android (César Valiente & Wunderlist Android team )](https://speakerdeck.com/cesarvaliente/engineering-wunderlist-for-android).
 
