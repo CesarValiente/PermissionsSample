@@ -149,7 +149,7 @@ public class ContactFragment extends Fragment implements ContactView {
 
     @OnClick(R.id.photo)
     public void onSaveImageClick() {
-        mainView.requestWriteExternalStoragePermission();
+        mainView.requestSaveImage();
     }
 
     public void saveImage() {

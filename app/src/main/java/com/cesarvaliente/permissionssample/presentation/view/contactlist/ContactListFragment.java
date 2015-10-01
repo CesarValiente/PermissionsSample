@@ -98,7 +98,7 @@ public class ContactListFragment extends Fragment implements ContactListView {
     @Override
     public void onStart() {
         super.onStart();
-        mainView.requestReadContactsPermission();
+        mainView.requestReadContacts();
     }
 
     @Override
