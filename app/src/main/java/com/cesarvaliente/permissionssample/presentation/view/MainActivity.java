@@ -124,12 +124,12 @@ public class MainActivity extends BaseActivity implements MainView, PermissionCa
     //---- Requesting permissions. Fragments will call this functions -----//
 
     @Override
-    public void requestReadContactsPermission() {
+    public void requestReadContacts() {
         permissionPresenter.requestReadContactsPermission(ACTION_READ_CONTACTS);
     }
 
     @Override
-    public void requestWriteExternalStoragePermission() {
+    public void requestSaveImage() {
         permissionPresenter.requestWriteExternalStorangePermission(PermissionPresenter
                 .ACTION_SAVE_IMAGE);
     }
