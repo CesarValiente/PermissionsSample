@@ -36,9 +36,9 @@ public interface MainView {
 
     void showContactFragment(ContactModel contact);
 
-    void requestReadContactsPermission();
+    void requestReadContacts();
 
-    void requestWriteExternalStoragePermission();
+    void requestSaveImage();
 
     void requestSendSMS();
 }
