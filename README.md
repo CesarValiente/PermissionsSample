@@ -33,7 +33,8 @@ Here we would use a dependency injector like Dagger or a Service Locator, but I 
 In the PermissionPresenter we also have passed to its constructor a [PermissionCallbacks](https://github.com/CesarValiente/PermissionsSample/blob/master/app/src/main/java/com/cesarvaliente/permissionssample/presentation/presenter/PermissionPresenter.java#L85) that the MainActivity is implementing; this callback will be used by the PermissionPresenter to inform the View the process has been finished.
 
 # Testing
-Testing the permissions functionality here is really easy. Since the PermissionPresenter's dependencies have been injected, we can mock both for being able to change the their behaviour at glance, and checking the PermissionCallbacks methods if they were called or not when some action was done.
+Testing the permissions functionality here is really easy. Since the PermissionPresenter's dependencies have been injected, we can mock both for being able to change their behaviour at glance, and checking the PermissionCallbacks methods wether they were called or not when some action was done.
+You can check [PermissionPresenterTest](https://github.com/CesarValiente/PermissionsSample/blob/master/app/src/test/java/com/cesarvaliente/permissionssample/presentation/presenter/PermissionPresenterTest.java) to see how is implemented.
 
 # UI
 As we have seen here, the MainActivity actor is the one that is going to access and to interact with the permissions stuff, its fragments will just ask him to do some actions, but the fragments don't know anything about permissions, they are completely agnostic about that.
