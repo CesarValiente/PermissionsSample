@@ -5,6 +5,9 @@ Sample app that shows how the new permissions model introduced in Android 6.0 wo
 To use properly this app we first we have to create some contacts in our device/emulator, adding a name, a phone number and an image would be perfect so we can try all the stuff the app does.
 If you are running this app in a device and you already have contacts, then you don't have to do anything else, just run it.
 
+# Do you want to see first what this app does?
+Sure! [here](https://www.youtube.com/watch?v=COiFMgbPzhg&feature=youtu.be) you can watch a small video.
+
 # Architecture of the sample app
 This app has been implemented based in the teachings of [Clean Architecture](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html) by [Uncle Bob](https://twitter.com/unclebobmartin). I would like to remark that is based, so is not strictly following it, since at the end, we are software developers who have to take these teachings and adjust them to our requirements, preferences, tastes, etc.
 
