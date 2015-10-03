@@ -1,10 +1,14 @@
 # PermissionsSample
 Sample app that shows how the new permissions model introduced in Android 6.0 works, and how we can implement it and educate our users on a nice way (following clean architecture, using architectural patterns, etc.)
 
-# Architecture of the sample app
-This app has been implemented based in the teachings of [Clean Architecture](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html) by [Uncle Bob](https://twitter.com/unclebobmartin). I would like to remark that is based, so is not strictly following it since at the end, we are software developers that have to take this teachings and adjust them to our requirements, preferences, tastes, etc.
+# Requirements
+To use properly this app we first we have to create some contacts in our device/emulator, adding a name, a phone number and an image would be perfect so we can try all the stuff the app does.
+If you are running this app in a device and you already have contacts, then you don't have to do anything else, just run it.
 
-For an amazing and better example of clean architecture on Android, or better said, the clean approach followed by its author, check this amazing post of my friend [Fernando Cejas](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/).
+# Architecture of the sample app
+This app has been implemented based in the teachings of [Clean Architecture](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html) by [Uncle Bob](https://twitter.com/unclebobmartin). I would like to remark that is based, so is not strictly following it, since at the end, we are software developers who have to take these teachings and adjust them to our requirements, preferences, tastes, etc.
+
+For an amazing and better example of Clean architecture on Android, or better said, the Clean approach followed by its author, check this amazing post of my friend [Fernando Cejas](http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/).
 
 The app is divided in three modules, to make easier the decoupling between the different parts of the app.
 - App (presentation): Is basically the UI, it has Android dependencies. Is built following the MVP pattern, so the views (Activity and Fragment) delegates (invokes) their presenters to deal with what the user tries to do.
@@ -21,24 +25,24 @@ First, in the App module (the presentation layer) we have the [MainActivity](htt
 
 This implementation of the PermissionAction it will be injected to the [PermissionPresenter](https://github.com/CesarValiente/PermissionsSample/blob/master/app/src/main/java/com/cesarvaliente/permissionssample/presentation/presenter/PermissionPresenter.java) that will take care of interacting with the implementation in a transparent way for the View.
 
-Here we would use a dependency injector like Dagger, but I decided not to use it since this app is to educate about other stuff and also adding the separation of concerns was adding more difficult to a simple implementation. In next iterations of this sample app I will use Dagger2.
+Here we would use a dependency injector like Dagger or a Service Locator, but I decided not to use it since this app is to teach about other stuff (adding the separation of concerns just has added enough difficult to a simple implementation). On next iterations of this sample app, I would use a depenency injector like Dagger2.
 
 In the PermissionPresenter we also have passed to its constructor a [PermissionCallbacks](https://github.com/CesarValiente/PermissionsSample/blob/master/app/src/main/java/com/cesarvaliente/permissionssample/presentation/presenter/PermissionPresenter.java#L85) that the MainActivity is implementing; this callback will be used by the PermissionPresenter to inform the View the process has been finished.
 
 # Testing
-Testing the permissions functionality here is really easy. Since the PermissionPresenter's dependencies have been injected, we can mock both for being able to change the their behaviour at glance and checking the PermissionCallbacks method if they were called or not when some action was done.
+Testing the permissions functionality here is really easy. Since the PermissionPresenter's dependencies have been injected, we can mock both for being able to change the their behaviour at glance, and checking the PermissionCallbacks methods if they were called or not when some action was done.
 
 # UI
 As we have seen here, the MainActivity actor is the one that is going to access and to interact with the permissions stuff, its fragments will just ask him to do some actions, but the fragments don't know anything about permissions, they are completely agnostic about that.
 
 Then it makes perfectly sense that is the MainActivity the one that has the UI stuff of permissions.
-Its layout has a CoordinatorLayout, used to make possible the dismiss action of the snackbar, and a ViewStub, that it will be used to inflate in runtime the View we want to use to educate our users when the permission was already asked (is called rationale).
+Its layout has a CoordinatorLayout, used to make possible the dismiss action of the snackbar, and a ViewStub, that it will be used to inflate in runtime the View we want to use, to educate our users when the permission is already asked (It's called rationale).
 
 # Slides
-I will upload the slides as soon as possible right after Mobiconf conference.
+The slides of this sample app can be found in SpeackerDeck [here](https://goo.gl/MKYLbZ).
 
 # Links and ackwnowledges
-I didn't want to finish without link to the awesome developers that have helped me a lot during the creation of this sample app. Their amazing posts and source code repos are a must that nay developer should give it a try.
+I don't want to finish without linking to the awesome developers that have helped me a lot during the creation of this sample app. Their amazing posts and source code repos are a must that any developer should have a look.
 
 New permissions model on Android:
 - [New permissions model](https://developer.android.com/preview/features/runtime-permissions.html).
@@ -53,11 +57,11 @@ Architecture:
 - [Effective Android UI (Pedro V. Gómez Sánchez)](https://github.com/pedrovgs/EffectiveAndroidUI).
 - [Engineering Wunderlist for Android (César Valiente & Wunderlist Android team )](https://speakerdeck.com/cesarvaliente/engineering-wunderlist-for-android).
 
-And I would like to thank as well to [Fine Cinnamon (OJTHandler)](https://github.com/FineCinnamon) for all the knowledge and good people that can be found there (and funny times too).
+And I would like to thank as well to [Fine Cinnamon (OGTHandler)](https://github.com/FineCinnamon) for all the knowledge and good people that can be found there (and funny times too).
 
 # One last thing...
 This is an open source sample app released under [Apache License v2](http://www.apache.org/licenses/LICENSE-2.0), so it means that you can grab the code an use it in your open source projects that use compatible licenses with Apache, but also in your privatives ones.
 
-This license requires attribution, so if you are going to use the code, respect the attribution, respect the class headers that mention the license terms and if you are going to release your app to the world (the binary, the apk) then create a section in your app where you mention all the libraries your app uses including author name, code license and code source link.
+This license requires attribution, so if you are going to use the code, respect the attribution, respect the class headers that mention the license terms and author name, and if you are going to release your app (that uses this code) to the world (the binary, the apk) then create a section in your app where you mention all the libraries your app uses including author name, code license and code source link.
 
 And that's all, hope this approach on managing the new android permissions model helps you! Thanks :-)
