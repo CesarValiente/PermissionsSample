@@ -34,6 +34,7 @@ In the PermissionPresenter we also have passed to its constructor a [PermissionC
 
 # Testing
 Testing the permissions functionality here is really easy. Since the PermissionPresenter's dependencies have been injected, we can mock both for being able to change their behaviour at glance, and checking the PermissionCallbacks methods wether they were called or not when some action was done.
+
 You can check [PermissionPresenterTest](https://github.com/CesarValiente/PermissionsSample/blob/master/app/src/test/java/com/cesarvaliente/permissionssample/presentation/presenter/PermissionPresenterTest.java) to see how is implemented.
 
 # UI
@@ -45,7 +46,7 @@ Its layout has a CoordinatorLayout, used to make possible the dismiss action of 
 # Slides
 The slides of this sample app can be found in SpeackerDeck [here](https://goo.gl/MKYLbZ).
 
-# Links and ackwnowledges
+# Links and acknowledgements
 I don't want to finish without linking to the awesome developers that have helped me a lot during the creation of this sample app. Their amazing posts and source code repos are a must that any developer should have a look.
 
 New permissions model on Android:
