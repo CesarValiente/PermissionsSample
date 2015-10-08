@@ -6,11 +6,11 @@ To use properly this app we first we have to create some contacts in our device/
 If you are running this app in a device and you already have contacts, then you don't have to do anything else, just run it.
 
 # Do you want to see first what this app does?
-Sure! here you have some screenshots that show how the app request permissions for 1st and 2nd (or N time), and how educates the user showing the rationale info panel and a snackbar when the permission has been denied "forever".
+Sure! here you have some screenshots that show how the app requests permissions for 1st and 2nd (or N time), and how it educates users showing the rationale info panel and a snackbar when the permission has been denied "forever".
 
 ![Permission request 1st time][1]
 ![Permission request 2nd time][2]
-![Showoing rationale][3]
+![Showing rationale][3]
 ![Showing snackbar-permission denied][4]
 
 [1]: ./art/permission-request-contacts.png
