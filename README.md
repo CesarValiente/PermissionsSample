@@ -6,7 +6,20 @@ To use properly this app we first we have to create some contacts in our device/
 If you are running this app in a device and you already have contacts, then you don't have to do anything else, just run it.
 
 # Do you want to see first what this app does?
-Sure! [here](https://www.youtube.com/watch?v=COiFMgbPzhg&feature=youtu.be) you can watch a small video.
+Sure! here you have some screenshots that show how the app request permissions for 1st and 2nd (or N time), and how educates the user showing the rationale info panel and a snackbar when the permission has been denied "forever".
+
+![Permission request 1st time][1]
+![Permission request 2nd time][2]
+![Showoing rationale][3]
+![Showing snackbar-permission denied][4]
+
+[1]: ./art/permission-request-contacts.png
+[2]: ./art/permission-request-contact-2nd.png
+[3]: ./art/sampleapp_image_rationale.png
+[4]: ./art/sampleapp_image_snackbar.png
+
+
+And [here](https://www.youtube.com/watch?v=COiFMgbPzhg&feature=youtu.be) you can watch a small video.
 
 # Architecture of the sample app
 This app has been implemented based in the teachings of [Clean Architecture](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html) by [Uncle Bob](https://twitter.com/unclebobmartin). I would like to remark that is based, so is not strictly following it, since at the end, we are software developers who have to take these teachings and adjust them to our requirements, preferences, tastes, etc.
@@ -62,7 +75,7 @@ Architecture:
 - [Effective Android UI (Pedro V. Gómez Sánchez)](https://github.com/pedrovgs/EffectiveAndroidUI).
 - [Engineering Wunderlist for Android (César Valiente & Wunderlist Android team )](https://speakerdeck.com/cesarvaliente/engineering-wunderlist-for-android).
 
-And I would like to thank as well to [Fine Cinnamon (OGTHandler)](https://github.com/FineCinnamon) for all the knowledge and good people that can be found there (and funny times too).
+And I would like to thank as well to [Fine Cinnamon (OJTHandler)](https://github.com/FineCinnamon) for all the knowledge and good people that can be found there (and funny times too).
 
 # One last thing...
 This is an open source sample app released under [Apache License v2](http://www.apache.org/licenses/LICENSE-2.0), so it means that you can grab the code an use it in your open source projects that use compatible licenses with Apache, but also in your privatives ones.
