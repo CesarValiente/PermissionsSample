@@ -15,6 +15,10 @@
  */
 package com.cesarvaliente.permissionssample.presentation.presenter;
 
+import com.cesarvaliente.permissionssample.action.PermissionAction;
+import com.cesarvaliente.permissionssample.presentation.model.Action;
+import com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.PermissionCallbacks;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,11 +26,7 @@ import org.junit.runners.JUnit4;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.cesarvaliente.permissionssample.action.PermissionAction;
-import com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.PermissionCallbacks;
-
 import static android.Manifest.permission.READ_CONTACTS;
-import static com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.ACTION_READ_CONTACTS;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -51,8 +51,8 @@ public class PermissionPresenterTest {
     public void shouldCallAcceptedPermission() {
         when(permissionAction.hasSelfPermission(READ_CONTACTS)).thenReturn(true);
 
-        permissionPresenter.requestReadContactsPermission(ACTION_READ_CONTACTS);
-        verify(permissionCallbacks).permissionAccepted(ACTION_READ_CONTACTS);
+        permissionPresenter.requestReadContactsPermission();
+        verify(permissionCallbacks).permissionAccepted(Action.ACTION_CODE_READ_CONTACTS);
     }
 
     @Test
@@ -60,8 +60,8 @@ public class PermissionPresenterTest {
         when(permissionAction.hasSelfPermission(READ_CONTACTS)).thenReturn(false);
         when(permissionAction.shouldShowRequestPermissionRationale(READ_CONTACTS)).thenReturn(true);
 
-        permissionPresenter.requestReadContactsPermission(ACTION_READ_CONTACTS);
-        verify(permissionCallbacks).showRationale(ACTION_READ_CONTACTS);
+        permissionPresenter.requestReadContactsPermission();
+        verify(permissionCallbacks).showRationale(Action.ACTION_CODE_READ_CONTACTS);
     }
 
     @Test
@@ -69,7 +69,7 @@ public class PermissionPresenterTest {
         when(permissionAction.hasSelfPermission(READ_CONTACTS)).thenReturn(false);
         when(permissionAction.shouldShowRequestPermissionRationale(READ_CONTACTS)).thenReturn(false);
 
-        permissionPresenter.requestReadContactsPermission(ACTION_READ_CONTACTS);
-        verify(permissionAction).requestPermission(READ_CONTACTS, ACTION_READ_CONTACTS);
+        permissionPresenter.requestReadContactsPermission();
+        verify(permissionAction).requestPermission(READ_CONTACTS, Action.ACTION_CODE_READ_CONTACTS);
     }
 }

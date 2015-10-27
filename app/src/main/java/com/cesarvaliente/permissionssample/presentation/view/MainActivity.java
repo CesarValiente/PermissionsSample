@@ -22,22 +22,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 
-import butterknife.Bind;
-import butterknife.ButterKnife;
 import com.cesarvaliente.permissionssample.R;
 import com.cesarvaliente.permissionssample.action.PermissionAction;
 import com.cesarvaliente.permissionssample.action.impl.permission.PermissionActionFactory;
 import com.cesarvaliente.permissionssample.presentation.BaseActivity;
+import com.cesarvaliente.permissionssample.presentation.model.Action;
 import com.cesarvaliente.permissionssample.presentation.model.ContactModel;
 import com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter;
 import com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.PermissionCallbacks;
 import com.cesarvaliente.permissionssample.presentation.view.contact.ContactFragment;
 import com.cesarvaliente.permissionssample.presentation.view.contactlist.ContactListFragment;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 import static com.cesarvaliente.permissionssample.action.impl.permission.PermissionActionFactory.SUPPORT_IMPL;
-import static com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.ACTION_READ_CONTACTS;
-import static com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.ACTION_SAVE_IMAGE;
-import static com.cesarvaliente.permissionssample.presentation.presenter.PermissionPresenter.ACTION_SEND_SMS;
 
 
 public class MainActivity extends BaseActivity implements MainView, PermissionCallbacks {
@@ -125,18 +124,17 @@ public class MainActivity extends BaseActivity implements MainView, PermissionCa
 
     @Override
     public void requestReadContacts() {
-        permissionPresenter.requestReadContactsPermission(ACTION_READ_CONTACTS);
+        permissionPresenter.requestReadContactsPermission();
     }
 
     @Override
     public void requestSaveImage() {
-        permissionPresenter.requestWriteExternalStorangePermission(PermissionPresenter
-                .ACTION_SAVE_IMAGE);
+        permissionPresenter.requestWriteExternalStorangePermission();
     }
 
     @Override
     public void requestSendSMS() {
-        permissionPresenter.requestSendSMS(PermissionPresenter.ACTION_SEND_SMS);
+        permissionPresenter.requestSendSMS();
     }
 
     //----- Permission management ----//
@@ -144,27 +142,23 @@ public class MainActivity extends BaseActivity implements MainView, PermissionCa
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
-        case ACTION_READ_CONTACTS:
-        case ACTION_SAVE_IMAGE:
-        case ACTION_SEND_SMS:
-            if (permissionPresenter.verifyGrantedPermission(grantResults)) {
-                permissionAccepted(requestCode);
-            } else {
-                permissionDenied(requestCode);
-            }
+        case Action.ACTION_CODE_READ_CONTACTS:
+        case Action.ACTION_CODE_SAVE_IMAGE:
+        case Action.ACTION_CODE_SEND_SMS:
+            permissionPresenter.checkGrantedPermission(grantResults, requestCode);
         }
     }
 
     @Override
     public void permissionAccepted(int action) {
         switch (action) {
-        case ACTION_READ_CONTACTS:
+        case Action.ACTION_CODE_READ_CONTACTS:
             contactListFragment.getPhoneBookContacts();
             break;
-        case ACTION_SAVE_IMAGE:
+        case Action.ACTION_CODE_SAVE_IMAGE:
             contactFragment.saveImage();
             break;
-        case ACTION_SEND_SMS:
+        case Action.ACTION_CODE_SEND_SMS:
             contactFragment.sendSMS();
             break;
         }
@@ -180,15 +174,15 @@ public class MainActivity extends BaseActivity implements MainView, PermissionCa
     @Override
     public void showRationale(int action) {
         switch (action) {
-        case ACTION_READ_CONTACTS:
+        case Action.ACTION_CODE_READ_CONTACTS:
             createAndShowPermissionRationale(action, R.string.rationale_read_contacts_title, R.string
                     .rationale_read_contacts_subtitle);
             break;
-        case ACTION_SAVE_IMAGE:
+        case Action.ACTION_CODE_SAVE_IMAGE:
             createAndShowPermissionRationale(action, R.string.rationale_save_image_title, R.string
                     .rationale_save_image_subtitle);
             break;
-        case ACTION_SEND_SMS:
+        case Action.ACTION_CODE_SEND_SMS:
             createAndShowPermissionRationale(action, R.string.rationale_send_sms_title, R.string
                     .rationale_send_sms_subtitle);
             break;
@@ -198,14 +192,14 @@ public class MainActivity extends BaseActivity implements MainView, PermissionCa
     public void onAcceptRationaleClick(View view) {
         int action = dismissPermissionRationale();
         switch (action) {
-        case ACTION_READ_CONTACTS:
-            permissionPresenter.requestReadContactsPermissionAfterRationale(action);
+        case Action.ACTION_CODE_READ_CONTACTS:
+            permissionPresenter.requestReadContactsPermissionAfterRationale();
             break;
-        case ACTION_SAVE_IMAGE:
-            permissionPresenter.requestWriteExternalStorangePermissionAfterRationale(action);
+        case Action.ACTION_CODE_SAVE_IMAGE:
+            permissionPresenter.requestWriteExternalStorangePermissionAfterRationale();
             break;
-        case ACTION_SEND_SMS:
-            permissionPresenter.requestSendSMSAfterRationale(action);
+        case Action.ACTION_CODE_SEND_SMS:
+            permissionPresenter.requestSendSMSAfterRationale();
             break;
         }
     }
@@ -213,13 +207,13 @@ public class MainActivity extends BaseActivity implements MainView, PermissionCa
     @Override
     protected void showSnackBarPermissionMessage(int action) {
         switch (action) {
-        case ACTION_READ_CONTACTS:
+        case Action.ACTION_CODE_READ_CONTACTS:
             super.showSnackBarPermissionMessage(R.string.snackbar_read_contacts);
             break;
-        case ACTION_SAVE_IMAGE:
+        case Action.ACTION_CODE_SAVE_IMAGE:
             super.showSnackBarPermissionMessage(R.string.snackbar_save_image);
             break;
-        case ACTION_SEND_SMS:
+        case Action.ACTION_CODE_SEND_SMS:
             super.showSnackBarPermissionMessage(R.string.snackbar_sms);
             break;
         }

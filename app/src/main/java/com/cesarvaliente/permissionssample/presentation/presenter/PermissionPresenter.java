@@ -15,19 +15,15 @@
  */
 package com.cesarvaliente.permissionssample.presentation.presenter;
 
-import android.Manifest;
 import android.content.pm.PackageManager;
 
 import com.cesarvaliente.permissionssample.action.PermissionAction;
+import com.cesarvaliente.permissionssample.presentation.model.Action;
 
 /**
  * Created by Cesar on 15/09/15.
  */
 public class PermissionPresenter {
-
-    public static final int ACTION_READ_CONTACTS = 1;
-    public static final int ACTION_SAVE_IMAGE = 2;
-    public static final int ACTION_SEND_SMS = 3;
 
     private PermissionAction permissionAction;
     private PermissionCallbacks permissionCallbacks;
@@ -37,43 +33,55 @@ public class PermissionPresenter {
         this.permissionCallbacks = permissionCallbacks;
     }
 
-    public void requestReadContactsPermission(int action) {
-        checkAndRequestPermission(action, Manifest.permission.READ_CONTACTS);
+    public void requestReadContactsPermission() {
+        checkAndRequestPermission(Action.READ_CONTACTS);
     }
 
-    public void requestReadContactsPermissionAfterRationale(int action) {
-        permissionAction.requestPermission(Manifest.permission.READ_CONTACTS, action);
+    public void requestReadContactsPermissionAfterRationale() {
+        requestPermission(Action.READ_CONTACTS);
     }
 
-    public void requestWriteExternalStorangePermission(int action) {
-        checkAndRequestPermission(action, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+    public void requestWriteExternalStorangePermission() {
+        checkAndRequestPermission(Action.SAVE_IMAGE);
     }
 
-    public void requestWriteExternalStorangePermissionAfterRationale(int action) {
-        permissionAction.requestPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE, action);
+    public void requestWriteExternalStorangePermissionAfterRationale() {
+        requestPermission(Action.SAVE_IMAGE);
     }
 
-    public void requestSendSMS(int action) {
-        checkAndRequestPermission(action, Manifest.permission.SEND_SMS);
+    public void requestSendSMS() {
+        checkAndRequestPermission(Action.SEND_SMS);
     }
 
-    public void requestSendSMSAfterRationale(int action) {
-        permissionAction.requestPermission(Manifest.permission.SEND_SMS, action);
+    public void requestSendSMSAfterRationale() {
+        requestPermission(Action.SEND_SMS);
     }
 
-    private void checkAndRequestPermission(int action, String permission) {
-        if (permissionAction.hasSelfPermission(permission)) {
-            permissionCallbacks.permissionAccepted(action);
+    private void checkAndRequestPermission(Action action) {
+        if (permissionAction.hasSelfPermission(action.getPermission())) {
+            permissionCallbacks.permissionAccepted(action.getCode());
         } else {
-            if (permissionAction.shouldShowRequestPermissionRationale(permission)) {
-                permissionCallbacks.showRationale(action);
+            if (permissionAction.shouldShowRequestPermissionRationale(action.getPermission())) {
+                permissionCallbacks.showRationale(action.getCode());
             } else {
-                permissionAction.requestPermission(permission, action);
+                permissionAction.requestPermission(action.getPermission(), action.getCode());
             }
         }
     }
 
-    public boolean verifyGrantedPermission(int[] grantResults) {
+    private void requestPermission(Action action) {
+        permissionAction.requestPermission(action.getPermission(), action.getCode());
+    }
+
+    public void checkGrantedPermission(int[] grantResults, int requestCode) {
+        if (verifyGrantedPermission(grantResults)) {
+            permissionCallbacks.permissionAccepted(requestCode);
+        } else {
+            permissionCallbacks.permissionDenied(requestCode);
+        }
+    }
+
+    private boolean verifyGrantedPermission(int[] grantResults) {
         for (int result : grantResults) {
             if (result != PackageManager.PERMISSION_GRANTED) {
                 return false;
@@ -83,10 +91,10 @@ public class PermissionPresenter {
     }
 
     public interface PermissionCallbacks {
-        void permissionAccepted(int action);
+        void permissionAccepted(@Action.ActionCode int actionCode);
 
-        void permissionDenied(int action);
+        void permissionDenied(@Action.ActionCode int actionCode);
 
-        void showRationale(int action);
+        void showRationale(@Action.ActionCode int actionCode);
     }
 }
