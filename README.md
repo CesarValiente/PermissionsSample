@@ -77,6 +77,10 @@ Architecture:
 
 And I would like to thank as well to [Fine Cinnamon (OJTHandler)](https://github.com/FineCinnamon) for all the knowledge and good people that can be found there (and funny times too).
 
+# Contributors
+
+- [Luis G. Valle](https://github.com/lgvalle)
+
 # One last thing...
 This is an open source sample app released under [Apache License v2](http://www.apache.org/licenses/LICENSE-2.0), so it means that you can grab the code an use it in your open source projects that use compatible licenses with Apache, but also in your privatives ones.
 
