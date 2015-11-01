@@ -79,6 +79,7 @@ And I would like to thank as well to [Fine Cinnamon (OJTHandler)](https://github
 
 # Contributors
 
+- [César Valiente](https://github.com/CesarValiente)
 - [Luis G. Valle](https://github.com/lgvalle)
 
 # One last thing...
